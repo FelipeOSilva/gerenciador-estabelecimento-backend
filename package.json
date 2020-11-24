@@ -4,6 +4,9 @@
   "main": "index.js",
   "author": "Felipe Silva",
   "license": "MIT",
+  "scripts": {
+    "dev": "tsnd --respawn --transpile-only --ignore-watch node_modules src/server.ts"
+  },
   "devDependencies": {
     "@types/express": "^4.17.9",
     "ts-node-dev": "^1.0.0",
