@@ -5,7 +5,9 @@
   "author": "Felipe Silva",
   "license": "MIT",
   "scripts": {
-    "dev": "tsnd --respawn --transpile-only --ignore-watch node_modules src/server.ts"
+    "dev": "tsnd --respawn --transpile-only --ignore-watch node_modules src/server.ts",
+    "knex:migrate": "knex --knexfile knexfile.ts migrate:latest",
+    "knex:migrate:rollback": "knex --knexfile knexfile.ts migrate:rollback"
   },
   "devDependencies": {
     "@types/express": "^4.17.9",
