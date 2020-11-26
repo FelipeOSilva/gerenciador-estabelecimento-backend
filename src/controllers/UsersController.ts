@@ -18,7 +18,7 @@ export default class UsersController {
       .first()
 
     if (userExists) {
-      return response.status(400).json({ error: 'Usuário já cadastrado!' })
+      return response.status(400).json({ message: 'Usuário já cadastrado!' })
     }
 
     const trx = await db.transaction()
