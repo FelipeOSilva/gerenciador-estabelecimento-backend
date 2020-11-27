@@ -1,5 +1,6 @@
 import { Request, Response } from 'express'
 import db from '../database/connection'
+import { hash } from 'bcryptjs'
 
 type UserPostRequest = {
   name: string;
@@ -23,8 +24,9 @@ export default class UsersController {
 
     const trx = await db.transaction()
     try {
+      const passwordCrypt = await hash(password, 8)
       await trx('users').insert({
-        name, email, password
+        name, email, password: passwordCrypt
       })
 
       await trx.commit()
